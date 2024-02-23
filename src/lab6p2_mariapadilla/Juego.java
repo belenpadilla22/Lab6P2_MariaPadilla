@@ -183,6 +183,11 @@ public class Juego extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Portero", "Defensa", "MedioCampista", "Delantero" }));
 
         jButton2.setText("Agregar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -497,7 +502,7 @@ public class Juego extends javax.swing.JFrame {
         DefaultMutableTreeNode nodo_equipo; 
         nodo_equipo = new DefaultMutableTreeNode(new Equipo(nombre.getText(),pais.getText(),cuidad.getText(),estadio.getText()));
         DefaultMutableTreeNode nodo_pais; 
-        nodo_pais=new DefaultMutableTreeNode();
+        nodo_pais=new DefaultMutableTreeNode(pais.getText());
         nodo_pais.add(nodo_equipo);
         raiz.add(nodo_pais);
         m.reload();
@@ -515,6 +520,24 @@ public class Juego extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_jTree1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo
+                = (DefaultListModel) jList1.getModel();
+
+        modelo.addElement(new Jugador(jTextField5.getText(),(String)jComboBox1.getSelectedItem(),(Integer)jSpinner1.getValue()));
+        jList1.setModel(modelo);
+        jTextField5.setText("");
+        jComboBox1.setSelectedIndex(0);
+        jSpinner1.setValue(15);
+       
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
