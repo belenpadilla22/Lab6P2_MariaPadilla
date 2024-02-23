@@ -4,6 +4,8 @@
  */
 package lab6p2_mariapadilla;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author belen
@@ -37,6 +39,7 @@ public class Juego extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jF_Jugador = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -44,8 +47,9 @@ public class Juego extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jSpinner1 = new javax.swing.JSpinner();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jF_Transferencia = new javax.swing.JFrame();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -88,14 +92,12 @@ public class Juego extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Agregar");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(202, 202, 202))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,6 +113,15 @@ public class Juego extends javax.swing.JFrame {
                     .addComponent(jTextField3)
                     .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(208, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(202, 202, 202))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(78, 78, 78))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +144,9 @@ public class Juego extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jf_CrearLayout = new javax.swing.GroupLayout(jf_Crear.getContentPane());
@@ -158,6 +171,12 @@ public class Juego extends javax.swing.JFrame {
 
         jLabel11.setText("Posicion:");
 
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(15, 15, 45, 1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Portero", "Defensa", "MedioCampista", "Delantero" }));
+
+        jButton2.setText("Agregar");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -168,19 +187,20 @@ public class Juego extends javax.swing.JFrame {
                 .addGap(183, 183, 183))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField5))
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(37, 37, 37)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2))))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -195,12 +215,14 @@ public class Juego extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(jButton2)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jF_JugadorLayout = new javax.swing.GroupLayout(jF_Jugador.getContentPane());
@@ -223,11 +245,7 @@ public class Juego extends javax.swing.JFrame {
 
         jLabel14.setText("Equipos");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jList1.setModel(new DefaultListModel());
         jScrollPane1.setViewportView(jList1);
 
         jScrollPane2.setViewportView(jTree1);
@@ -301,18 +319,33 @@ public class Juego extends javax.swing.JFrame {
         jBEquipos.setFocusable(false);
         jBEquipos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBEquipos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBEquipos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBEquiposMouseClicked(evt);
+            }
+        });
         jToolBar1.add(jBEquipos);
 
         jBjugadores.setText("Crear Jugadores");
         jBjugadores.setFocusable(false);
         jBjugadores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBjugadores.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBjugadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBjugadoresMouseClicked(evt);
+            }
+        });
         jToolBar1.add(jBjugadores);
 
         jBTranferencia.setText("Transferencia");
         jBTranferencia.setFocusable(false);
         jBTranferencia.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBTranferencia.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jBTranferencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBTranferenciaMouseClicked(evt);
+            }
+        });
         jToolBar1.add(jBTranferencia);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -347,14 +380,29 @@ public class Juego extends javax.swing.JFrame {
 
         jmEquipos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jmEquipos.setText("Crear Equipos");
+        jmEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEquiposActionPerformed(evt);
+            }
+        });
         MneuOpcion.add(jmEquipos);
 
         jmJugadores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jmJugadores.setText("Crear Jugadores");
+        jmJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmJugadoresActionPerformed(evt);
+            }
+        });
         MneuOpcion.add(jmJugadores);
 
         jmTransfeencia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jmTransfeencia.setText("Transferencia");
+        jmTransfeencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmTransfeenciaActionPerformed(evt);
+            }
+        });
         MneuOpcion.add(jmTransfeencia);
 
         jMenuBar1.add(MneuOpcion);
@@ -381,6 +429,52 @@ public class Juego extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jmEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEquiposActionPerformed
+        // TODO add your handling code here:
+        
+        //1
+        jf_Crear.pack();
+        jf_Crear.setVisible(true);
+        //this.setVisible(false);
+        
+    }//GEN-LAST:event_jmEquiposActionPerformed
+
+    private void jmJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmJugadoresActionPerformed
+        // TODO add your handling code here:
+        jF_Jugador.pack();
+        jF_Jugador.setVisible(true);
+       // this.setVisible(false);
+        
+    }//GEN-LAST:event_jmJugadoresActionPerformed
+
+    private void jmTransfeenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmTransfeenciaActionPerformed
+        // TODO add your handling code here:
+        jF_Transferencia.pack();
+        jF_Transferencia.setVisible(true);
+       // this.setVisible(false);
+    }//GEN-LAST:event_jmTransfeenciaActionPerformed
+
+    private void jBEquiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBEquiposMouseClicked
+        // TODO add your handling code here:
+        jf_Crear.pack();
+        jf_Crear.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_jBEquiposMouseClicked
+
+    private void jBjugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBjugadoresMouseClicked
+        // TODO add your handling code here:
+        jF_Jugador.pack();
+        jF_Jugador.setVisible(true);
+       // this.setVisible(false);
+    }//GEN-LAST:event_jBjugadoresMouseClicked
+
+    private void jBTranferenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBTranferenciaMouseClicked
+        // TODO add your handling code here:
+        jF_Transferencia.pack();
+        jF_Transferencia.setVisible(true);
+       // this.setVisible(false);
+    }//GEN-LAST:event_jBTranferenciaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -423,6 +517,9 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton jBEquipos;
     private javax.swing.JButton jBTranferencia;
     private javax.swing.JButton jBjugadores;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jF_Jugador;
     private javax.swing.JFrame jF_Transferencia;
     private javax.swing.JLabel jLabel1;
@@ -447,13 +544,12 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTree jTree1;
     private javax.swing.JFrame jf_Crear;
