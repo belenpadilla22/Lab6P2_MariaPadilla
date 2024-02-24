@@ -4,6 +4,8 @@
  */
 package lab6p2_mariapadilla;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -64,6 +66,8 @@ public class Juego extends javax.swing.JFrame {
         jTree1 = new javax.swing.JTree();
         jButton3 = new javax.swing.JButton();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -345,6 +349,17 @@ public class Juego extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jMenuItem1.setText("Modificar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Eliminar");
+        jPopupMenu1.add(jMenuItem2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
@@ -566,28 +581,84 @@ public class Juego extends javax.swing.JFrame {
                     = (DefaultTreeModel) jTree1.getModel();
             DefaultMutableTreeNode raiz
                     = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            //obtener la persona a guardar
             DefaultListModel modeloLISTA
                     = (DefaultListModel) jList1.getModel();
             
-            String jugador;
-            jugador
+            String nacionalidad, nombre;
+            int edad; 
+            nacionalidad
                     = ((Jugador) modeloLISTA.get(
                             jList1.getSelectedIndex())).
                     getNombre();
-            }        
+
+            nombre = ((Jugador) modeloLISTA.get(
+                    jList1.getSelectedIndex())).
+                    getNombre();
+            edad = ((Jugador) modeloLISTA.get(
+                    jList1.getSelectedIndex())).
+                    getEdad();
+            
+            int centinela = -1;           
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().
+                        equals(nacionalidad)) {
+                    DefaultMutableTreeNode p
+                            = new DefaultMutableTreeNode(
+                                    new Jugador(nombre, nombre, edad)
+                            );
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                } //fin if
+            } //fin for  
+            
+            if (centinela == -1) {
+                DefaultMutableTreeNode n
+                        = new DefaultMutableTreeNode(nacionalidad);
+                DefaultMutableTreeNode p
+                        = new DefaultMutableTreeNode(
+                                new Jugador(nombre, nombre, edad)
+                        );
+                n.add(p);
+                raiz.add(n);
+            }  // fin if          
+            modeloARBOL.reload();
+            
+                        
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "No hay persona seleccionada");
+        }
+      
             
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         // TODO add your handling code here:aqui
          if (jList1.getSelectedIndex() >= 0) {
-            if (evt.isMetaDown()) {
+            if (evt.getButton()==3) {
                 jPopupMenu1.show(evt.getComponent(),
                         evt.getX(), evt.getY());
 
             }
         }
     }//GEN-LAST:event_jList1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        if (jList1.getSelectedIndex() >= 0){
+            DefaultListModel modeloLISTA
+                 = (DefaultListModel) jList1.getModel();
+                ((Jugador) modeloLISTA.get(
+                jList1.getSelectedIndex()) ).
+                setNombre(JOptionPane.showInputDialog("nombre"));
+                jList1.setModel(modeloLISTA);
+
+    
+    
+   } 
+       
+      
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -620,6 +691,24 @@ public class Juego extends javax.swing.JFrame {
             }
         });
     }
+   
+    public boolean Validadedad( ){
+//         if (jList1.getSelectedIndex() >= 0) {
+//            DefaultListModel modeloLISTA
+//                    = (DefaultListModel) jList1.getModel();
+//            int edad=Integer.parseInt(JOptionPane.showInputDialog("Edad"));
+//            if (edad>0 && edad<100){
+//                 ((Jugador) modeloLISTA.get(jList1.getSelectedIndex())).setEdad(edad);
+//            jList1.setModel(modeloLISTA);
+//
+//        }
+//            
+//      }
+         
+        String regex = "[0-9]";Pattern pattern = Pattern.compile(regex);;
+        Matcher matcher = pattern.matcher(regex);
+        return matcher.matches();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuAyuda;
@@ -651,6 +740,8 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
