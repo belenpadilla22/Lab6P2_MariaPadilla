@@ -797,15 +797,9 @@ public class Juego extends javax.swing.JFrame {
 //    public void validadnombre (){
 //        String cadena="ABCEFGHIJKLMÑOPQRSTUVWXYZ";
 //        int c=0;
-//        for (int i = 0; i < cadena.length(); i++) {
-//            for (int j = 0; j <nombre.getText().length() ; j++) {
-//                if (nombre.getText().charAt(i).e) {
-//                    
-//                }
-//            }
-//                
-//        }
-//    
+//        String nombre;
+//        DefaultListModel modeloLISTA=(DefaultListModel)
+//        
 //    
 //    } /// LO SIENTOOOO
 DefaultMutableTreeNode nodo_seleccionado;
