@@ -358,6 +358,11 @@ public class Juego extends javax.swing.JFrame {
         jPopupMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Eliminar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -641,7 +646,9 @@ public class Juego extends javax.swing.JFrame {
 //                    "No hay persona seleccionada");
 //        }
 //      
-//         
+//   
+
+
      boolean correcto=false;
      if(jList1.getSelectedIndex()>=0 && jTree1.getSelectionPaths()!=null){
          DefaultTreeModel modeloARBOL
@@ -681,7 +688,6 @@ public class Juego extends javax.swing.JFrame {
       }
          
     
-
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
@@ -699,17 +705,32 @@ public class Juego extends javax.swing.JFrame {
         if (jList1.getSelectedIndex() >= 0){
             DefaultListModel modeloLISTA
                  = (DefaultListModel) jList1.getModel();
-                ((Jugador) modeloLISTA.get(
-                jList1.getSelectedIndex()) ).
-                setNombre(JOptionPane.showInputDialog("nombre"));
+                ((Jugador) modeloLISTA.get( jList1.getSelectedIndex()) ). setNombre(JOptionPane.showInputDialog("Nombre"));
+                ((Jugador) modeloLISTA.get( jList1.getSelectedIndex()) ). setEdad(Integer.parseInt(JOptionPane.showInputDialog("Edada")));
                 jList1.setModel(modeloLISTA);
 
-    
-    
    } 
        
       
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         int response = JOptionPane.showConfirmDialog(
+                this,
+                "Seguro de Eliminar?",
+                "Confirm",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.OK_OPTION) {
+            DefaultTreeModel m
+                    = (DefaultTreeModel) jList1.getModel();
+            m.removeNodeFromParent(
+                    nodo_seleccionado);
+            m.reload();
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
