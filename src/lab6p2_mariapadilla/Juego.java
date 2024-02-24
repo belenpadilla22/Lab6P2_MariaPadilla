@@ -658,23 +658,29 @@ public class Juego extends javax.swing.JFrame {
                      DefaultMutableTreeNode nodo2=new DefaultMutableTreeNode(jugador_seleccionada);
                      nodo.add(nodo2);
                      correcto=true;
+                     break;
                  
                  }
                  
              }
          }
-             
- 
-         }
+          if (!correcto){
+              DefaultMutableTreeNode nodoPos=new DefaultMutableTreeNode(jugador_seleccionada.getPos());
+              
+              DefaultMutableTreeNode jugador=new DefaultMutableTreeNode(jugador_seleccionada);
+              nodoPos.add(jugador);
+              nodo_seleccionado.add(nodoPos);
+              
+          
+          }  else {
+            JOptionPane.showMessageDialog(this,
+                    "No hay persona seleccionada");
+        } 
+          jTree1.setModel(modeloARBOL);
          
+      }
          
-     
-     
-     
-     
-     
-
-        
+    
 
     }//GEN-LAST:event_jButton3MouseClicked
 
