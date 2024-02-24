@@ -706,8 +706,11 @@ public class Juego extends javax.swing.JFrame {
             DefaultListModel modeloLISTA
                  = (DefaultListModel) jList1.getModel();
                 ((Jugador) modeloLISTA.get( jList1.getSelectedIndex()) ). setNombre(JOptionPane.showInputDialog("Nombre"));
-                ((Jugador) modeloLISTA.get( jList1.getSelectedIndex()) ). setEdad(Integer.parseInt(JOptionPane.showInputDialog("Edada")));
+                Validadedad();
+                //((Jugador) modeloLISTA.get( jList1.getSelectedIndex()) ). setEdad(Integer.parseInt(JOptionPane.showInputDialog("Edada")));
                 jList1.setModel(modeloLISTA);
+                
+                
 
    } 
        
@@ -756,22 +759,33 @@ public class Juego extends javax.swing.JFrame {
         });
     }
    
-    public boolean Validadedad( ){
-//         if (jList1.getSelectedIndex() >= 0) {
-//            DefaultListModel modeloLISTA
-//                    = (DefaultListModel) jList1.getModel();
-//            int edad=Integer.parseInt(JOptionPane.showInputDialog("Edad"));
-//            if (edad>0 && edad<100){
-//                 ((Jugador) modeloLISTA.get(jList1.getSelectedIndex())).setEdad(edad);
-//            jList1.setModel(modeloLISTA);
-//
-//        }
-//            
-//      }
+    public void Validadedad( ){
+        try {
+            if (jList1.getSelectedIndex() >= 0) {
+            DefaultListModel modeloLISTA
+                    = (DefaultListModel) jList1.getModel();
+            int edad=Integer.parseInt(JOptionPane.showInputDialog("Edad"));
+            if (edad>0 && edad<100){
+                 ((Jugador) modeloLISTA.get(jList1.getSelectedIndex())).setEdad(edad);
+            jList1.setModel(modeloLISTA);
+
+        }
+            
+      }
+     } catch (Exception e) {
+         JOptionPane.showMessageDialog(null, "solo puede ser numeros");
+   }
          
-        String regex = "[0-9]";Pattern pattern = Pattern.compile(regex);;
-        Matcher matcher = pattern.matcher(regex);
-        return matcher.matches();
+         
+        
+//        String regex = "[0-9]";Pattern pattern = Pattern.compile(regex);;
+//        Matcher matcher = pattern.matcher(regex);
+//        return matcher.matches();
+
+
+        
+
+
     }
 DefaultMutableTreeNode nodo_seleccionado;
 Jugador jugador_seleccionada;
