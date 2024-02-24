@@ -551,12 +551,17 @@ public class Juego extends javax.swing.JFrame {
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
         // TODO add your handling code here:aqi
         
-         if (evt.getButton()==3){
+            //seleccionar un nodo con click derecho
+            
+            
+
+        
+         
              
         
         
         
-        }
+        
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -576,61 +581,101 @@ public class Juego extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // aqui
-        if (jList1.getSelectedIndex() >= 0) {
-            DefaultTreeModel modeloARBOL
-                    = (DefaultTreeModel) jTree1.getModel();
-            DefaultMutableTreeNode raiz
-                    = (DefaultMutableTreeNode) modeloARBOL.getRoot();
-            //obtener la persona a guardar
-            DefaultListModel modeloLISTA
-                    = (DefaultListModel) jList1.getModel();
-            
-            String nacionalidad, nombre;
-            int edad; 
-            nacionalidad
-                    = ((Jugador) modeloLISTA.get(
-                            jList1.getSelectedIndex())).
-                    getNombre();
+//        if (jList1.getSelectedIndex() >= 0 &&  jTree1.getSelectionPaths()!=null) {
+//            DefaultTreeModel modeloARBOL
+//                    = (DefaultTreeModel) jTree1.getModel();
+//            DefaultMutableTreeNode raiz
+//                    = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+//            //obtener la persona a guardar
+//            DefaultListModel modeloLISTA
+//                    = (DefaultListModel) jList1.getModel();
+//            
+//            
+//            int row = jTree1.getClosestRowForLocation(//
+//                    evt.getX(), evt.getY());
+//            jTree1.setSelectionRow(row);
+//            Object v1
+//                    =jTree1.getSelectionPath().
+//                    getLastPathComponent();
+//            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+//            String nacionalidad, nombre;
+//            int edad; 
+//            nacionalidad
+//                    = ((Jugador) modeloLISTA.get(
+//                            jList1.getSelectedIndex())).
+//                    getNombre();
+//
+//            nombre = ((Jugador) modeloLISTA.get(
+//                    jList1.getSelectedIndex())).
+//                    getNombre();
+//            edad = ((Jugador) modeloLISTA.get(
+//                    jList1.getSelectedIndex())).
+//                    getEdad();
+//            
+//            int centinela = -1;           
+//            for (int i = 0; i < nodo_seleccionado.getChildCount(); i++) {
+//                if (raiz.getChildAt(i).toString().
+//                        equals(nacionalidad)) {
+//                    DefaultMutableTreeNode p
+//                            = new DefaultMutableTreeNode(
+//                                    new Jugador(nombre, nombre, edad)
+//                            );
+//                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+//                    centinela = 1;
+//                } //fin if
+//            } //fin for  
+//            
+//            for (int i = 0; i < nodo_seleccionado.getChildCount(); i++) {
+//            if (nodo_seleccionado.getChildAt(i).toString().equals(nacionalidad)) {
+//             DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Jugador(nombre, nombre, edad));
+//             ((DefaultMutableTreeNode) nodo_seleccionado.getChildAt(i)).add(p);
+//              centinela = 1;
+//        }
+//}
+//       
+//            modeloARBOL.reload();
+//            
+//                        
+//        } else {
+//            JOptionPane.showMessageDialog(this,
+//                    "No hay persona seleccionada");
+//        }
+//      
+//         
+     boolean correcto=false;
+     if(jList1.getSelectedIndex()>=0 && jTree1.getSelectionPaths()!=null){
+         DefaultTreeModel modeloARBOL
+                = (DefaultTreeModel) jTree1.getModel();
+         DefaultListModel modelolista=
+                 (DefaultListModel)jList1.getModel();
+         jugador_seleccionada=(Jugador)modelolista.getElementAt(jList1.getSelectedIndex());
+         nodo_seleccionado=(DefaultMutableTreeNode)jTree1.getSelectionPath().getLastPathComponent();
+         
+         if (nodo_seleccionado.getUserObject() instanceof Equipo){
+             for (int i = 0; i < nodo_seleccionado.getChildCount(); i++) {
+                 DefaultMutableTreeNode nodo=(DefaultMutableTreeNode) nodo_seleccionado.getChildAt(i);
+                 if (nodo.getUserObject().equals(jugador_seleccionada.getPos())){
+                     DefaultMutableTreeNode nodo2=new DefaultMutableTreeNode(jugador_seleccionada);
+                     nodo.add(nodo2);
+                     correcto=true;
+                 
+                 }
+                 
+             }
+         }
+             
+ 
+         }
+         
+         
+     
+     
+     
+     
+     
 
-            nombre = ((Jugador) modeloLISTA.get(
-                    jList1.getSelectedIndex())).
-                    getNombre();
-            edad = ((Jugador) modeloLISTA.get(
-                    jList1.getSelectedIndex())).
-                    getEdad();
-            
-            int centinela = -1;           
-            for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().
-                        equals(nacionalidad)) {
-                    DefaultMutableTreeNode p
-                            = new DefaultMutableTreeNode(
-                                    new Jugador(nombre, nombre, edad)
-                            );
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                    centinela = 1;
-                } //fin if
-            } //fin for  
-            
-            if (centinela == -1) {
-                DefaultMutableTreeNode n
-                        = new DefaultMutableTreeNode(nacionalidad);
-                DefaultMutableTreeNode p
-                        = new DefaultMutableTreeNode(
-                                new Jugador(nombre, nombre, edad)
-                        );
-                n.add(p);
-                raiz.add(n);
-            }  // fin if          
-            modeloARBOL.reload();
-            
-                        
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "No hay persona seleccionada");
-        }
-      
-            
+        
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
@@ -709,7 +754,8 @@ public class Juego extends javax.swing.JFrame {
         Matcher matcher = pattern.matcher(regex);
         return matcher.matches();
     }
-
+DefaultMutableTreeNode nodo_seleccionado;
+Jugador jugador_seleccionada;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuAyuda;
     private javax.swing.JMenu MneuOpcion;
