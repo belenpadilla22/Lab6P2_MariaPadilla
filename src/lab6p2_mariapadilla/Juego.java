@@ -716,20 +716,12 @@ public class Juego extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-         int response = JOptionPane.showConfirmDialog(
-                this,
-                "Seguro de Eliminar?",
-                "Confirm",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE);
-
-        if (response == JOptionPane.OK_OPTION) {
-            DefaultTreeModel m
-                    = (DefaultTreeModel) jList1.getModel();
-            m.removeNodeFromParent(
-                    nodo_seleccionado);
-            m.reload();
-        }
+         if (jList1.getSelectedIndex() >= 0){
+             DefaultListModel modelo=(DefaultListModel)jList1.getModel();
+             modelo.remove(jList1.getSelectedIndex());
+             jList1.setModel(modelo);
+         
+         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public static void main(String args[]) {
