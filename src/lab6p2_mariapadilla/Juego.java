@@ -548,7 +548,13 @@ public class Juego extends javax.swing.JFrame {
         nodo_pais=new DefaultMutableTreeNode(pais.getText());
         nodo_pais.add(nodo_equipo);
         raiz.add(nodo_pais);
-        m.reload();
+       
+        nombre.setText(" ");
+        pais.setText(" ");
+        cuidad.setText(" ");
+        estadio.setText(" ");
+         m.reload();
+        
         
        
     }//GEN-LAST:event_jButton1MouseClicked
@@ -787,6 +793,21 @@ public class Juego extends javax.swing.JFrame {
 
 
     }
+    
+//    public void validadnombre (){
+//        String cadena="ABCEFGHIJKLMÑOPQRSTUVWXYZ";
+//        int c=0;
+//        for (int i = 0; i < cadena.length(); i++) {
+//            for (int j = 0; j <nombre.getText().length() ; j++) {
+//                if (nombre.getText().charAt(i).e) {
+//                    
+//                }
+//            }
+//                
+//        }
+//    
+//    
+//    } /// LO SIENTOOOO
 DefaultMutableTreeNode nodo_seleccionado;
 Jugador jugador_seleccionada;
     // Variables declaration - do not modify//GEN-BEGIN:variables
